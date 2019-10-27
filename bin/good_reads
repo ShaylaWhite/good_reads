@@ -1,9 +1,7 @@
 #!/usr/bin/env ruby
 
-puts " " " "
-puts " " "    " " Welcome, Get Ready For Some Good Artsy Reads!"
+require_relative '../lib/good_reads'
 
-puts " " " "
-puts   " " "    " " 'A book is a gift you can open again and again' " 
+GoodReads::CLI.new.call
 
-puts "" "    " "  " "    " " " "  " "    " " " "  " "    " "  " " " "  " "    " " — Garrison Keillor"
+#Cli is a class and we going to make a new instance of it the call on it.
