@@ -6,22 +6,26 @@ class GoodReads::CLI
     puts " " " "
     puts " " "  " "  " " " " ''-A book is a gift you can open again and again-'' " 
     puts " " " "
-    get_book_title
+    get_book_titles
     list_book_title
     get_user_title
   end  
   
-  def get_book_title
+  def get_book_titles
+     GoodReads::Scraper.get_books
      @titles = GoodReads::Title.all
      #binding.pry
-    
+     
+  end 
+  
   def list_book_title
-    
+      
       puts " " " 'These are the **Newly** Released Art Books !!!!'"
       puts 'Please select the # title of the book you would like more info on?'
       @titles.each.with_index(1) do |title, index|
-      puts "#{index}. #{title}"       
-    end
+        puts "#{index}. #{title.name}"  
+      end
+  
   end
   
   
@@ -39,13 +43,13 @@ class GoodReads::CLI
   def show_book_titles_for(selected_title)
     title = @titles[selected_title -1] 
     puts " " " "
-    puts " " " " " " " " " Here's  411 on #{title} by the wonderful author: "
+    puts " " " " " " " " " Here's  411 on #{title.name} by the wonderful author: "
     puts " " " "
     #puts #{author name}
     puts " " " " " " "  The book fanatics give this book a 'rating' of: "
     #puts #{rating}
     puts " " " "
-    puts " " " " " Based on this 'rating' would you like to read  #{title}?"
+    puts " " " " " Based on this 'rating' would you like to read  #{title.name}?"
     puts " " " "
     puts " " "  " "  " " " " " "  " " " " " " " " " " [Yes/No]"
     puts " " " "
@@ -55,5 +59,4 @@ class GoodReads::CLI
     #puts please select another title"
     #list_book_title
   end
-end
 end
