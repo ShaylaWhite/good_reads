@@ -1,5 +1,5 @@
 class GoodReads::Title 
-  @all = [ ]
+    @@all = []
   
   attr_accessor :name
   
@@ -14,7 +14,7 @@ class GoodReads::Title
   end
   
   def save
-    @@all = self
+    @@all << self
   end
 end
   

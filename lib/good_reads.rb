@@ -5,6 +5,7 @@ require_relative "./good_reads/scraper"
 
 require 'pry'
 require 'nokogiri'
+require 'open-uri'
 
 module GoodReads
   class Error < StandardError; end

@@ -12,22 +12,22 @@ class GoodReads::CLI
   end  
   
   def get_book_title
-     @title = GoodReads::Title.all
+     @titles = GoodReads::Title.all
   end
     
   def list_book_title
       puts " " " 'These are the **Newly** Released Art Books !!!!'"
       puts """"
       puts   "Please select the # title of the book you would like more info on?"
-      @title.each_with_index(1) do |title, index|
-      puts "#{index}. #{title.name}"       
+      @titles.each_with_index do |title, index|
+      puts "#{index + 1 }. #{title}"       
     end
   end
   
   
   def get_user_title
     selected_title = gets.strip.to_i
-    show_book_titles_for(selected_title) if valid_input(selected_title, @title)
+    show_book_titles_for(selected_title) if valid_input(selected_title, @titles)
   end 
   
   def valid_input(input, data)
@@ -37,7 +37,7 @@ class GoodReads::CLI
         #list title name and introductes user to athour name
         
   def show_book_titles_for(selected_title)
-    title = @title[selected_title -1] 
+    title = @titles[selected_title -1] 
     puts " " " "
     puts " " " " " " " " " Here's  411 on #{title} by the wonderful author: "
     puts " " " "
