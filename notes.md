@@ -28,7 +28,7 @@ reading is fundemental :)
      >Name the Class , use NameSpace for it!
                        ensure that gems dont ruin each other.
  
- 
+ instanve variable stored the data of the titles
  
    
                    Objects 

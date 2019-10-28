@@ -1,7 +1,10 @@
 require_relative "./good_reads/version"
 require_relative "./good_reads/cli"
 require_relative "./good_reads/title"
+require_relative "./good_reads/scraper"
 
+require 'pry'
+require 'nokogiri'
 
 module GoodReads
   class Error < StandardError; end
