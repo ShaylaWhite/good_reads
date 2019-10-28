@@ -1,0 +1,3 @@
+class GoodReads:: Title 
+end
+  
