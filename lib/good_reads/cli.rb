@@ -19,6 +19,7 @@ class GoodReads::CLI
   
   def get_book_title
        @title = ['v amy', 'v sam', 'f frank', 'c shayla']
+   
   end
     
     
