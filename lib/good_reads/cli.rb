@@ -13,14 +13,14 @@ class GoodReads::CLI
   
   def get_book_title
      @titles = GoodReads::Title.all
-  end
+     #binding.pry
     
   def list_book_title
+    
       puts " " " 'These are the **Newly** Released Art Books !!!!'"
-      puts """"
-      puts   "Please select the # title of the book you would like more info on?"
-      @titles.each_with_index do |title, index|
-      puts "#{index + 1 }. #{title}"       
+      puts 'Please select the # title of the book you would like more info on?'
+      @titles.each.with_index(1) do |title, index|
+      puts "#{index}. #{title}"       
     end
   end
   
@@ -55,5 +55,5 @@ class GoodReads::CLI
     #puts please select another title"
     #list_book_title
   end
-
+end
 end
