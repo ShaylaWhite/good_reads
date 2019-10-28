@@ -12,9 +12,6 @@ class GoodReads::CLI
   end  
   
   def get_book_title
-     GoodReads::Title.new("rosie")
-     #GoodReads::Author.new("rosie")
-     #GoodReads::Rating.new("rosie")
      @title = GoodReads::Title.all
   end
     
@@ -22,8 +19,8 @@ class GoodReads::CLI
       puts " " " 'These are the **Newly** Released Art Books !!!!'"
       puts """"
       puts   "Please select the # title of the book you would like more info on?"
-      @title.each_with_index do |title, index|
-      puts "#{index + 1}. #{title.name}"       
+      @title.each_with_index(1) do |title, index|
+      puts "#{index}. #{title.name}"       
     end
   end
   
@@ -58,5 +55,5 @@ class GoodReads::CLI
     #puts please select another title"
     #list_book_title
   end
-  
+
 end
