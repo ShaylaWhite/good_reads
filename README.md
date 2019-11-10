@@ -1,6 +1,6 @@
 # GoodReads
 
-See Good Reads new art releases!
+See Good Reads new art releases!!!
 
 ## Installation
 
