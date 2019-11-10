@@ -1,10 +1,20 @@
 Project Notes
 
-reading is fundemental :)
+reading is fundemental, so let's give the user a chance to review so good art books!
+
+
+                      The Gem:
+
+>>gives the CLI a interface that the user can interact  with<<
+                  
+                  
+                   Project Steps:
+
 
 1>> >>SetUp Gem
 
-
+    bundle gem intsall 'good_reads'
+    
 2>> >> Connect to github
   >git add .
   >git commit -m
@@ -15,14 +25,18 @@ reading is fundemental :)
   
  3>> >> Connect your gem/files
  
-        >link the pages with the relative link at the top of the pages
+        >link the pages with the relative link at the top of the good_reads.rb page
+ 
+  4>>Pages
+                >>good_reads.rb<<
+ 
+     acting as our environment page.
+     connnect this page to the lib/good_reads page for the module to be recongized from the other pages
+     
+                >> the Cli.rb<<
+    where the CLI display is & user input 
  
  
- >>good_reads.rb is acting as our environment page.
-     connnect this page to the lib/good_reads page for the module to be recongized from the other page.
- 
- 
- 4>>Pages 
  
     CLI Module Page: Interacts with the user
      >Name the Class , use NameSpace for it!
