@@ -1,4 +1,4 @@
-class GoodReads::Title 
+class GoodReads::Review
     @@all = []
   
   attr_accessor :name
