@@ -2,6 +2,12 @@
 
 require_relative '../lib/good_reads'  
 
-GoodReads::CLI.new.call #intiase it then call the cli.rb class
+GoodReads::CLI.new.call 
 
-#Cli is a class and we going to make a new instance of it the call on it.
+#NameSpace initiiaties a .new(class method) 
+          #the triggers a instance of the class method to run through the lifecycle
+
+ #Cli is a class and we going to make a new instance of it then  invoke aka call that new instance we just create
+ #self intialize methods returns a instance of teh class
+ #self in class methods returns class. 
+ #you can always check to see where you are in the scope by simplying calling self.
