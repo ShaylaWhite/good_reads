@@ -2,12 +2,7 @@ require 'colorize'
 class GoodReads::CLI 
   
   def call
-    puts "-------------------------------------------------".underline
-    puts "\n-------Hello My Fellow Art Book Readers!!--------".white.on_magenta 
-    puts "-------Brace Yourself For A Few ARTSY Reads------".white.on_magenta
-    puts "-------------------------------------------------".underline
-    puts "\n"
-    binding.pry
+    art_books_prompt
     list_art_books
     accept_user_selection
     goodbye
@@ -16,6 +11,30 @@ class GoodReads::CLI
   def scrape_books
     @books = []
   end
+  
+  def art_books_prompt
+    puts "-------------------------------------------------".underline
+    puts "\n-------Hello My Fellow Art Book Readers!!--------".white.on_magenta 
+    puts "-------Brace Yourself For A Few ARTSY Reads------".white.on_magenta
+    puts "-------------------------------------------------".underline
+    puts "\n"
+    
+    input = gets.strip.upcase
+
+        case input 
+        when "ARTBOOKS"
+            art_books_prompt
+        when "EXIT"
+            goodbye
+            abort 
+        else 
+            puts "I'm confused, please try again!!!".red.underline
+            art_books_prompt
+        end 
+    end 
+end
+  
+
   
   def list_art_books
     puts "--------------------------------------------------"
