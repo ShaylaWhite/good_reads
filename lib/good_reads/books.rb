@@ -1,5 +1,5 @@
 class GoodReads::Books
-    @@all = []
+    @@all = ['S','D', 'D']
   
   attr_accessor :name
   

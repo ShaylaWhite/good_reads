@@ -5,10 +5,6 @@ class GoodReads::CLI
     art_books_prompt
   end  
   
-  def scrape_books
-    @books = ["GRAVY","FFGF","DFFDG"]
-  end
-  
   def art_books_prompt
     puts "-------------------------------------------------".underline
     puts "\n-------Hello My Fellow Art Book Readers!!--------".white.on_magenta 
@@ -30,7 +26,6 @@ class GoodReads::CLI
             abort 
         else 
             puts "Sorry incorrect entry, better luck next time!!!".red.underline
-            art_books_prompt
         end 
      end
   
@@ -41,8 +36,8 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books.each.with_index do |book, index|
-      puts "#{index}. #{books}" 
+    GoodReads::Books.all.each.with_index(1) do |book, index|
+      puts "#{index}. #{book}" 
     end
   end
   
