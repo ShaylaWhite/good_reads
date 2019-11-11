@@ -1,6 +1,6 @@
 require_relative "./good_reads/version"
 require_relative "./good_reads/cli"
-require_relative "./good_reads/review"
+require_relative "./good_reads/books"
 require_relative "./good_reads/scraper"
 
 require 'pry'

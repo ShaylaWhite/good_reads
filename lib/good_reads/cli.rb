@@ -3,13 +3,10 @@ class GoodReads::CLI
   
   def call
     art_books_prompt
-    list_art_books
-    accept_user_selection
-    goodbye
   end  
   
   def scrape_books
-    @books = []
+    @books = ["GRAVY","FFGF", "DFFDG"]
   end
   
   def art_books_prompt
@@ -27,13 +24,12 @@ class GoodReads::CLI
 
         case input 
         when "ARTBOOKS"
-            art_books_prompt
+            list_art_books
         when "EXIT"
             goodbye
             abort 
         else 
-            puts "I'm confused, please try again!!!".red.underline
-            puts "\n"
+            puts "Sorry incorrect entry, better luck next time!!!".red.underline
             art_books_prompt
         end 
      end
@@ -45,12 +41,12 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books.each_with_index do |index, month|
-      puts "#{index +1} #{month}"
+    @books.each.with_index do |books, index|
+      puts "#{index + 1}. #{books}" 
     end
   end
   
-  def accept_user_selection(book)
+  def accept_user_selection
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
