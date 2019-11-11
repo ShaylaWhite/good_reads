@@ -1,4 +1,6 @@
+
 require 'colorize'
+
 class GoodReads::CLI 
   
   def call
@@ -40,22 +42,35 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    GoodReads::Books.all.each.with_index(1) do |book, index|
+    @books = GoodReads::Books.all
+    @books.each.with_index(1) do |book, index|
       puts "#{index}. #{book}" 
     end
   end
   
   def accept_user_selection
+    input = nil
+    
+    while input != "EXIT"
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
     
-    input = gets.strip
-    book = GoodReads::Books.all
-     input.to_i <= GoodReads::Books.all.size && input.to_i > 0
-       puts "This #{book} was written by author"
+   
+    input = gets.strip.upcase
+    
+    if input.to_i > 0
+      
+       books_list = @books[input.to_i-1]
+       puts "This  was written by author"
        puts "Would you like to read this book?"
-  
+       
+    elsif input == "ARTBOOKS"
+        list_art_books
+    else
+        puts "Invalid Entry, enter 'ARTBOOKS' to review the books list again or 'EXIT' to exit!".red.underline
+      end
+    end 
   end
   
   
