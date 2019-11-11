@@ -19,11 +19,15 @@ class GoodReads::CLI
     input = gets.strip.upcase
 
         case input 
+        
         when "ARTBOOKS"
             list_art_books
+            accept_user_selection
+            
         when "EXIT"
             goodbye
             abort 
+            
         else 
             puts "Sorry incorrect entry, better luck next time!!!".red.underline
         end 
@@ -45,6 +49,13 @@ class GoodReads::CLI
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
+    
+    input = gets.strip
+    book = GoodReads::Books.all
+     input.to_i <= GoodReads::Books.all.size && input.to_i > 0
+       puts "This #{book} was written by author"
+       puts "Would you like to read this book?"
+  
   end
   
   
