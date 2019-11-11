@@ -3,6 +3,9 @@ class GoodReads::Books
   
   attr_accessor :name
   
+  def self.scraper
+     doc = Nokogiri::(open("https://www.goodreads.com/genres/art"))
+  end
   
   def initialize(name)
     @name = name 
