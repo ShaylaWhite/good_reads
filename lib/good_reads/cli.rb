@@ -6,7 +6,7 @@ class GoodReads::CLI
   end  
   
   def scrape_books
-    @books = ["GRAVY","FFGF", "DFFDG"]
+    @books = ["GRAVY","FFGF","DFFDG"]
   end
   
   def art_books_prompt
@@ -41,8 +41,8 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books.each.with_index do |books, index|
-      puts "#{index + 1}. #{books}" 
+    @books.each.with_index do |book, index|
+      puts "#{index}. #{books}" 
     end
   end
   
