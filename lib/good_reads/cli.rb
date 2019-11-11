@@ -49,28 +49,31 @@ class GoodReads::CLI
   end
   
   def accept_user_selection
-    input = nil
-    
-    while input != "EXIT"
+  
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
-    
-   
+    input = nil
+    while input != "EXIT"
     input = gets.strip.upcase
     
     if input.to_i > 0
       
        books_list = @books[input.to_i-1]
        puts "This  was written by author"
-       puts "Would you like to read this book?"
-       
+       puts "Please vist wwww.goodreads.com to learn     more about this goodread."
+       puts "To Review the Book List Again Enter'ARTBOOKS' or 'EXIT' to say goodbye"
+    elsif input == "EXIT"
+        goodbye
+        abort 
+        
     elsif input == "ARTBOOKS"
-        list_art_books
+         list_art_books
     else
-        puts "Invalid Entry, enter 'ARTBOOKS' to review the books list again or 'EXIT' to exit!".red.underline
+        puts "Sorry incorrect entry, Please select again from the list below or Enter 'EXIT' so say goodbye".red.underline
+          list_art_books
+        end 
       end
-    end 
   end
   
   
@@ -78,5 +81,5 @@ class GoodReads::CLI
     puts "--------------------------------------------------"
     puts "---Thank You for stopping by, See you again soon--".white.on_magenta
     puts "--------------------------------------------------"
- end
+   end
 end
