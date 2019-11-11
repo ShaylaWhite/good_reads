@@ -15,9 +15,13 @@ class GoodReads::CLI
   def art_books_prompt
     puts "-------------------------------------------------".underline
     puts "\n-------Hello My Fellow Art Book Readers!!--------".white.on_magenta 
-    puts "-------Brace Yourself For A Few ARTSY Reads------".white.on_magenta
-    puts "-------------------------------------------------".underline
+    puts "-----Brace Yourself For A Few 'ARTSY' Reads------".white.on_magenta
+    puts "\n-------------------------------------------------\n"
+    puts "\n----Enter 'ARTBOOKS' to access the Books---------".white.on_magenta
+    puts "-----Enter 'EXIT', Exit & Say GoodBye------------".white.on_magenta
     puts "\n"
+    puts "-------------------------------------------------".underline
+  
     
     input = gets.strip.upcase
 
@@ -29,10 +33,10 @@ class GoodReads::CLI
             abort 
         else 
             puts "I'm confused, please try again!!!".red.underline
+            puts "\n"
             art_books_prompt
         end 
-    end 
-end
+     end
   
 
   
@@ -44,15 +48,12 @@ end
     @books.each_with_index do |index, month|
       puts "#{index +1} #{month}"
     end
-  
-    
   end
   
   def accept_user_selection(book)
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
-    
   end
   
   
@@ -60,5 +61,5 @@ end
     puts "--------------------------------------------------"
     puts "---Thank You for stopping by, See you again soon--".white.on_magenta
     puts "--------------------------------------------------"
-  end
+ end
 end
