@@ -34,15 +34,17 @@ class GoodReads::CLI
             puts "Sorry incorrect entry, better luck next time!!!".red.underline
         end 
      end
+  #access acorss my whole instance so use a instance vaiable 
   
-
+    def get_books
+      @books = GoodReads::Books.all
+    end
   
   def list_art_books
     puts "--------------------------------------------------"
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books = GoodReads::Books.book_list
     @books.each.with_index(1) do |book, index|
       puts "#{index}. #{book.title}" 
     end
