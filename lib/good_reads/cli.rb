@@ -36,15 +36,12 @@ class GoodReads::CLI
      end
   #access acorss my whole instance so use a instance vaiable 
   
-    def get_books
-      @books = GoodReads::Books.all
-    end
   
   def list_art_books
     puts "--------------------------------------------------"
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
-    
+    @books = GoodReads::Books.all
     @books.each.with_index(1) do |book, index|
       puts "#{index}. #{book.title}" 
     end
@@ -63,13 +60,16 @@ class GoodReads::CLI
       
        books_list = @books[input.to_i-1]
        puts "HERE IS THE LINK TO LEARN MORE ABOUT THIS GOOD READ".red
-       puts"sldkmfl;sd".underline
+       puts"'URL'".underline
        puts "To Review the Book List Again Enter'ARTBOOKS' or 'EXIT' to say goodbye"
+       
     elsif input == "EXIT"
         goodbye
         abort 
+        
     elsif input == "ARTBOOKS"
          list_art_books
+         
     else
         puts "Sorry incorrect entry, Please select again from the list below or Enter 'EXIT' so say goodbye".red.underline
           list_art_books

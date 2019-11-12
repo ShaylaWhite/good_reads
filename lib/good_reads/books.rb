@@ -1,23 +1,31 @@
 class GoodReads::Books
-  @@all = []
+   attr_accessor :title, :url
   
-  attr_accessor :title
-  
-  #using a instance variable because the hook method initializes & a new title for every instance created.
-  
-  def intialize(title)
-    @title = title 
-    save
+  #being called on the class itself and not the instance of the class
+  def self.all 
+   self.scrape_books
   end
-
- def self.all #being called on the class itself and not the instance.
-    GoodReads::Scraper.scrape_books if 
-   @@all
- end
  
- def save
-   @@all << self
- end
+  def self.scrape_books
+    all = []
+    
+    all << self.scrape_title_url
+    
+    all
+  end
+ 
+ 
+  def self.scrape_title_url
+    
+  doc = Nokogiri::HTML(open("https://www.goodreads.com/genres/art"))
 
+  book = self.new
+  
+
+  results = doc.css("div.bigBoxBody").first
+  book = results.css("div.coverWrapper")  
+  url = book.css("a").attr("href")
+  title = book.css("img").attr("alt")
+ end 
 end
   
