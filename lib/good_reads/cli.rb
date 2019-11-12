@@ -41,6 +41,7 @@ class GoodReads::CLI
     puts "--------------------------------------------------"
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
+    
     @books = GoodReads::Books.all
     @books.each.with_index(1) do |book, index|
       puts "#{index}. #{book.title}" 
