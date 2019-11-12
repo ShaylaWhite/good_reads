@@ -13,7 +13,7 @@ class GoodReads::CLI
     puts "-----Brace Yourself For A Few 'ARTSY' Reads------".white.on_magenta
     puts "\n-------------------------------------------------\n"
     puts "\n----Enter 'ARTBOOKS' to access the Books---------".white.on_magenta
-    puts "-----Enter 'EXIT', Exit & Say GoodBye------------".white.on_magenta
+    puts "-----Enter 'EXIT' to Exit & Say GoodBye!---------".white.on_magenta
     puts "\n"
     puts "-------------------------------------------------".underline
   
@@ -42,9 +42,9 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books = GoodReads::Books.all
+    @books = GoodReads::Books.book_list
     @books.each.with_index(1) do |book, index|
-      puts "#{index}. #{book}" 
+      puts "#{index}. #{book.title}" 
     end
   end
   
@@ -60,13 +60,12 @@ class GoodReads::CLI
     if input.to_i > 0
       
        books_list = @books[input.to_i-1]
-       puts "This  was written by author"
-       puts "Please vist wwww.goodreads.com to learn     more about this goodread."
+       puts "HERE IS THE LINK TO LEARN MORE ABOUT THIS GOOD READ".red
+       puts"sldkmfl;sd".underline
        puts "To Review the Book List Again Enter'ARTBOOKS' or 'EXIT' to say goodbye"
     elsif input == "EXIT"
         goodbye
         abort 
-        
     elsif input == "ARTBOOKS"
          list_art_books
     else
