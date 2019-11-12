@@ -3,7 +3,9 @@ class GoodReads::Books
   
   @@all = []
 
-  def initialize
+  def initialize(title,url)
+    @title = title
+    @url = url 
     @@all << self
   end
 
