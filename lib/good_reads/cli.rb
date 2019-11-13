@@ -4,8 +4,9 @@ require 'colorize'
 class GoodReads::CLI 
   
   def call
-    art_books_prompt
     scraper_books
+    art_books_prompt
+    
   end  
   
   def scraper_books

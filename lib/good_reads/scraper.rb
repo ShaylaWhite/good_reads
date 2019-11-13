@@ -11,6 +11,7 @@ class GoodReads::Scraper
    books.each do |book|
    url = book.css("a").attr("href")
    title = book.css("img").attr("alt")
+   binding.pry
    GoodReads::Books.new(title, url)
   end 
  end
