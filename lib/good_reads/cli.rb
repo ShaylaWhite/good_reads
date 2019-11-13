@@ -43,8 +43,8 @@ class GoodReads::CLI
     puts "--------------------------------------------------"
     
     @books = GoodReads::Books.all
-    @books.each.with_index(1) do |book, index|
-      puts "#{index}. #{book.title}" 
+    @books.each.with_index do |book, index|
+      puts "#{index + 1}. #{book.title}" 
     end
   end
   
