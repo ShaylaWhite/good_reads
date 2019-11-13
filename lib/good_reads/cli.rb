@@ -1,12 +1,11 @@
 
-require 'colorize'
-
 class GoodReads::CLI 
+  
+ 
   
   def call
     scraper_books
     art_books_prompt
-    
   end  
   
   def scraper_books
@@ -18,7 +17,7 @@ class GoodReads::CLI
     puts "\n-------Hello My Fellow Art Book Readers!!--------".white.on_magenta 
     puts "-----Brace Yourself For A Few 'ARTSY' Reads------".white.on_magenta
     puts "\n-------------------------------------------------\n"
-    puts "\n----Enter 'ARTBOOKS' to access the Books---------".white.on_magenta
+    puts "\n----Enter 'ARTBOOKS' to Access The Books---------".white.on_magenta
     puts "-----Enter 'EXIT' to Exit & Say GoodBye!---------".white.on_magenta
     puts "\n"
     puts "-------------------------------------------------".underline
@@ -48,8 +47,8 @@ class GoodReads::CLI
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
-    @books = GoodReads::Books.all
-    @books.each.with_index do |book, index|
+     @@books = GoodReads::Books.all
+     @@books.each.with_index do |book, index|
       puts "#{index + 1}. #{book.title}" 
     end
   end
@@ -65,11 +64,12 @@ class GoodReads::CLI
     
     if input.to_i > 0
       
-       books_list = @books[input.to_i-1]
-       puts "HERE IS THE LINK TO LEARN MORE ABOUT THIS GOOD READ"
-       puts"'#{book.url}'".underline
-       puts ""
-       puts "To Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye"
+       @book = @@books[input.to_i-1]
+       puts "\nThanks for choosing the book:"
+       puts "\n'#{@book.title.underline}'"
+       puts "\n PLEASE COPY AND PASTE THe LINK BELOW INTO YOUR BROWSER TO LEARN MORE".red
+       puts "\n #{@book.url}".underline
+       puts "\nTo Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye".red.bold
        
     elsif input == "EXIT"
         goodbye
