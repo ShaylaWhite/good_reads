@@ -6,12 +6,11 @@ class GoodReads::Scraper
     doc = Nokogiri::HTML(open("https://www.goodreads.com/genres/art"))
     results = doc.css("div.bigBoxBody").first
     books = results.css("div.coverWrapper")  
-  
     
-   books.each do |book|
-   url = book.css("a").attr("href").text
-   title = book.css("img").attr("alt").text
-   GoodReads::Books.new(title, url)
+    books.each do |book|
+    url = book.css("a").attr("href").text
+    title = book.css("img").attr("alt").text
+    GoodReads::Books.new(title, url)
   end 
  end
 end
