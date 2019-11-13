@@ -4,15 +4,15 @@ class GoodReads::Scraper
  
   def self.scrape_site
     doc = Nokogiri::HTML(open("https://www.goodreads.com/genres/art"))
-    results = self.scrape_site.css("div.bigBoxBody").first
+    results = doc.css("div.bigBoxBody").first
     books = results.css("div.coverWrapper")  
-    books
+  
     
-  self.scrape_books.each do |book|
-  book = GoodReads::Books.new
+  books.each do |book|
+  
   books.url = book.css("a").attr("href")
   books.title = book.css("img").attr("alt")
-  books
+  books = GoodReads::Books.new(title, url)
   
   end 
  end
