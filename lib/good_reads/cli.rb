@@ -43,7 +43,7 @@ class GoodReads::CLI
   
   
   def list_art_books
-    puts "--------------------------------------------------"
+    puts "\n--------------------------------------------------"
     puts "-------Here are the newly released ArtBooks-------".white.on_magenta
     puts "--------------------------------------------------"
     
@@ -58,18 +58,19 @@ class GoodReads::CLI
     puts "--------------------------------------------------"
     puts "-----What's your book selection? Enter the'#'-----".white.on_magenta
     puts "--------------------------------------------------"
-    input = nil
-    while input != "EXIT"
+    
+    input = nil?
+    while input != "EXIT" 
     input = gets.strip.upcase
     
-    if input.to_i > 0
+    if input.to_i.between?(1, 15)
       
        @book = @@books[input.to_i-1]
        puts "\nThanks for choosing the book:"
-       puts "\n'#{@book.title.underline}'"
-       puts "\n PLEASE COPY AND PASTE THe LINK BELOW INTO YOUR BROWSER TO LEARN MORE".red
+       puts "\n'#{@books.title.underline}'"
+       puts "\n PLEASE COPY AND PASTE THe LINK BELOW INTO YOUR BROWSER TO LEARN MORE".white.on_red
        puts "\n #{@book.url}".underline
-       puts "\nTo Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye".red.bold
+       puts "\nTo Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye".white.on_red.bold
        
     elsif input == "EXIT"
         goodbye
@@ -79,7 +80,9 @@ class GoodReads::CLI
          list_art_books
          
     else
-        puts "Sorry incorrect entry, Please select again from the list below or Enter 'EXIT' so say goodbye".red.underline
+        puts "\n-----------Sorry Incorrect Entry!!!----------".white.underline
+        puts "\n----Please select again from the list below!--".white.underline
+        puts "\n--------OR Enter 'EXIT' to Say Goodbye--------".white.on_red.underline
           list_art_books
         end 
       end
