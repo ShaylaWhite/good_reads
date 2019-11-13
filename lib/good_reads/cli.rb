@@ -5,7 +5,12 @@ class GoodReads::CLI
   
   def call
     art_books_prompt
+    scraper_books
   end  
+  
+  def scraper_books
+    GoodReads::Scraper.scrape_site
+  end
   
   def art_books_prompt
     puts "-------------------------------------------------".underline
