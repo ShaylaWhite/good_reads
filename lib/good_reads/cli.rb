@@ -66,9 +66,10 @@ class GoodReads::CLI
     if input.to_i > 0
       
        books_list = @books[input.to_i-1]
-       puts "HERE IS THE LINK TO LEARN MORE ABOUT THIS GOOD READ".red
-       puts"'URL'".underline
-       puts "To Review the Book List Again Enter'ARTBOOKS' or 'EXIT' to say goodbye"
+       puts "HERE IS THE LINK TO LEARN MORE ABOUT THIS GOOD READ"
+       puts"'#{book.url}'".underline
+       puts ""
+       puts "To Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye"
        
     elsif input == "EXIT"
         goodbye
