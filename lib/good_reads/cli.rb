@@ -1,8 +1,5 @@
 
 class GoodReads::CLI 
-  
- 
-  
   def call
     scraper_books
     art_books_prompt
@@ -67,7 +64,7 @@ class GoodReads::CLI
       
        @book = @@books[input.to_i-1]
        puts "\nThanks for choosing the book:"
-       puts "\n'#{@books.title.underline}'"
+       puts "\n'#{@book.title.underline}'"
        puts "\n PLEASE COPY AND PASTE THe LINK BELOW INTO YOUR BROWSER TO LEARN MORE".white.on_red
        puts "\n #{@book.url}".underline
        puts "\nTo Review the Book List Again Enter 'ARTBOOKS' or 'EXIT' to Say Goodbye".white.on_red.bold
